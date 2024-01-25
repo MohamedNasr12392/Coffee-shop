@@ -1,47 +1,77 @@
 import 'package:flutter/material.dart';
 
-class HomeAppBar extends StatelessWidget {
+class HomeAppBar extends StatefulWidget {
   const HomeAppBar({super.key});
+
+  @override
+  State<HomeAppBar> createState() => _HomeAppBarState();
+}
+
+class _HomeAppBarState extends State<HomeAppBar>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+
+  late Animation<Alignment> topAlignmentController;
+
+  @override
+  void initState() {
+    super.initState();
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 2));
+
+    topAlignmentController = TweenSequence<Alignment>([
+      TweenSequenceItem<Alignment>(
+          tween: Tween<Alignment>(
+              begin: Alignment.topLeft, end: Alignment.bottomRight),
+          weight: 1),
+    ]).animate(animationController);
+
+    animationController.repeat();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Stack(
-          children: [
-            SizedBox(
-              width: 42,
-              height: 40,
-              child: DecoratedBox(
-                decoration: ShapeDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      const Color(0xFF37373C),
-                      const Color(0x7F313139),
-                      Colors.black.withOpacity(0),
-                    ],
-                  ),
-                  shape: RoundedRectangleBorder(
-                    side: const BorderSide(
-                      width: 1,
-                      color: Color(0xFF131313),
+        AnimatedBuilder(
+          animation: animationController,
+          builder: (context, child) => Stack(
+            children: [
+              SizedBox(
+                width: 42,
+                height: 40,
+                child: DecoratedBox(
+                  decoration: ShapeDecoration(
+                    gradient: LinearGradient(
+                      begin: topAlignmentController.value,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        const Color(0xffffffff).withOpacity(.1),
+                        const Color(0xFF37373C),
+                        const Color(0x7F313139),
+                        Colors.black.withOpacity(0),
+                      ],
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(
+                        width: 1,
+                        color: Color(0xFF131313),
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                   ),
                 ),
               ),
-            ),
-            const Positioned(
-              left: 9,
-              top: 9,
-              child: Icon(
-                Icons.window_sharp,
-                color: Colors.white,
+              const Positioned(
+                left: 9,
+                top: 9,
+                child: Icon(
+                  Icons.window_sharp,
+                  color: Colors.white,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         const Spacer(),
         Container(

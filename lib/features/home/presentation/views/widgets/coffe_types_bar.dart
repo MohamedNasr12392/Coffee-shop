@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pixel_co_payment_practice/features/home/presentation/views/widgets/circle_tab_indicator.dart';
 
-class HomeTapBar extends StatelessWidget {
-  const HomeTapBar({super.key});
+class CoffeTypesBar extends StatelessWidget {
+  const CoffeTypesBar({super.key});
 
   @override
   Widget build(BuildContext context) {
