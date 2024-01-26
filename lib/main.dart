@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pixel_co_payment_practice/features/home/presentation/views/pages/coffe_details_page.dart';
 import 'package:pixel_co_payment_practice/features/home/presentation/views/pages/home.dart';
 
 void main() {

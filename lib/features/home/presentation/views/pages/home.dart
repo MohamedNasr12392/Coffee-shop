@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pixel_co_payment_practice/features/home/presentation/views/widgets/coffee_grid_view.dart';
+import 'package:pixel_co_payment_practice/features/home/presentation/views/widgets/coffee_item.dart';
 import 'package:pixel_co_payment_practice/features/home/presentation/views/widgets/home_Text_and_search_bar.dart';
 import 'package:pixel_co_payment_practice/features/home/presentation/views/widgets/home_app_bar.dart';
 import 'package:pixel_co_payment_practice/features/home/presentation/views/widgets/coffe_types_bar.dart';
@@ -10,14 +12,14 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 4,
-      animationDuration: const Duration(milliseconds: 600),
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.only(right: 35, left: 28, top: 40),
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.only(right: 35, left: 28, top: 40),
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
               const HomeAppBar(),
               const SizedBox(
@@ -29,25 +31,14 @@ class HomeView extends StatelessWidget {
               const SizedBox(
                 height: 43,
               ),
-              const CoffeTypesBar(),
-              // Container(
-              //   width: 168,
-              //   height: 259,
-              //   child: Column(
-              //     children: [
-              //       Container(
-              //         decoration:  BoxDecoration(
-              //           image: const DecorationImage(
-              //             image: NetworkImage(
-              //                 'https://tse3.mm.bing.net/th/id/OIP.sORUCLQs6IFavbrcEWRPgAHaE8?rs=1&pid=ImgDetMain'),
-              //             fit: BoxFit.fill,
-              //           ),
-              //           borderRadius: BorderRadius.circular(15),
-              //         ),
-              //       )
-              //     ],
-              //   ),
-              // ),
+              const DefaultTabController(
+                  length: 4,
+                  animationDuration: Duration(milliseconds: 600),
+                  child: CoffeTypesBar()),
+              const SizedBox(
+                height: 30,
+              ),
+              const CoffeeGridView(),
             ],
           ),
         ),
