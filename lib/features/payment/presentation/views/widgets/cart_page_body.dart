@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pixel_co_payment_practice/core/constants/gradients.dart';
 import 'package:pixel_co_payment_practice/core/widgets/custom_button.dart';
+import 'package:pixel_co_payment_practice/features/payment/presentation/views/pages/payment_details.dart';
 import 'package:pixel_co_payment_practice/features/payment/presentation/views/widgets/cart_total_price.dart';
 import 'package:pixel_co_payment_practice/features/payment/presentation/views/widgets/order_info_item.dart';
 
@@ -56,9 +57,9 @@ class CartPageBody extends StatelessWidget {
           CustomButton(
             buttonText: 'Complete Payment',
             onTapAction: () {
-              // Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              //   return const PaymentDetailsView();
-              // }));
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return const PaymentDetailsView();
+              }));
 
               // showModalBottomSheet(
               //     context: context,

@@ -11,7 +11,7 @@ class _HomeAppBarState extends State<HomeAppBar>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
 
-  late Animation<Alignment> AlignmentController;
+  late Animation<Alignment> alignmentController;
 
   @override
   void initState() {
@@ -19,7 +19,7 @@ class _HomeAppBarState extends State<HomeAppBar>
     animationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 2));
 
-    AlignmentController = TweenSequence<Alignment>([
+    alignmentController = TweenSequence<Alignment>([
       TweenSequenceItem<Alignment>(
         tween: Tween<Alignment>(
           begin: Alignment.topLeft,
@@ -46,7 +46,7 @@ class _HomeAppBarState extends State<HomeAppBar>
                 child: DecoratedBox(
                   decoration: ShapeDecoration(
                     gradient: LinearGradient(
-                      begin: AlignmentController.value,
+                      begin: alignmentController.value,
                       end: Alignment.bottomRight,
                       colors: [
                         const Color(0xffffffff).withOpacity(.1),
