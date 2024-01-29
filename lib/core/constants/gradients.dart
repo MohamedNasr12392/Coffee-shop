@@ -37,13 +37,14 @@ class MyGradients {
       begin: begin,
       end: end,
       colors: [
+        const Color(0xFF37373C),
+        const Color(0x7F313139),
+        const Color(0xFF37373C),
+        Colors.black.withOpacity(0),
         Colors.black.withOpacity(0),
         const Color(0xFF37373C),
         const Color(0x7F313139),
-        Colors.black.withOpacity(0),
         const Color(0xFF37373C),
-        const Color(0xFF37373C),
-        Colors.black.withOpacity(0),
       ],
     );
   }

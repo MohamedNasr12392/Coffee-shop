@@ -4,6 +4,7 @@ import 'package:pixel_co_payment_practice/core/widgets/custom_button.dart';
 import 'package:pixel_co_payment_practice/features/payment/presentation/views/pages/payment_details.dart';
 import 'package:pixel_co_payment_practice/features/payment/presentation/views/widgets/cart_total_price.dart';
 import 'package:pixel_co_payment_practice/features/payment/presentation/views/widgets/order_info_item.dart';
+import 'package:pixel_co_payment_practice/features/payment/presentation/views/widgets/payment_methods_bottom_sheet.dart';
 
 class CartPageBody extends StatelessWidget {
   const CartPageBody({super.key});
@@ -57,17 +58,14 @@ class CartPageBody extends StatelessWidget {
           CustomButton(
             buttonText: 'Complete Payment',
             onTapAction: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return const PaymentDetailsView();
-              }));
-
-              // showModalBottomSheet(
-              //     context: context,
-              //     shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.circular(16)),
-              //     builder: (context) {
-              //       return const PaymentMethodsBottomSheet();
-              //     });
+              showModalBottomSheet(
+                  context: context,
+                  backgroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16)),
+                  builder: (context) {
+                    return const PaymentMethodsBottomSheet();
+                  });
             },
           ),
           const SizedBox(

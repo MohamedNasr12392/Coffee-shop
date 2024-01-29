@@ -16,7 +16,7 @@ class ThankYouCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: ShapeDecoration(
-        color: const Color(0xFFEDEDED),
+        color: Color.fromARGB(255, 20, 9, 9),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
