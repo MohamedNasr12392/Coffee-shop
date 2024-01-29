@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pixel_co_payment_practice/core/constants/colors.dart';
 import 'package:pixel_co_payment_practice/core/widgets/coffee_price.dart';
 
 class CoffeItemTexts extends StatelessWidget {
@@ -43,9 +44,9 @@ class CoffeItemTexts extends StatelessWidget {
               onPressed: () {},
               icon: const Icon(
                 Icons.add,
-                color: Color(0xFFB77651),
+                color: MyColors.shadeOfBrown,
               ),
-              splashColor: const Color(0xFFB77651),
+              splashColor: MyColors.shadeOfBrown,
             ),
           ],
         ),

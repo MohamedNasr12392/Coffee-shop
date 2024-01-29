@@ -10,6 +10,7 @@ class CoffeeDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      backgroundColor: Colors.black,
       body: Padding(
         padding: EdgeInsets.all(18.0),
         child: Column(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pixel_co_payment_practice/core/constants/colors.dart';
 
 class CoffeeDetailsDetailsSectionOverPhoto extends StatelessWidget {
   const CoffeeDetailsDetailsSectionOverPhoto({super.key});
@@ -51,7 +52,7 @@ class CoffeeDetailsDetailsSectionOverPhoto extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.star,
-                      color: Color(0xFFB77651),
+                      color: MyColors.shadeOfBrown,
                     ),
                     Text(
                       '4.5',

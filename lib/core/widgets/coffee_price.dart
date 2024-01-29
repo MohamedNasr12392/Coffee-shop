@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pixel_co_payment_practice/core/constants/colors.dart';
 
 class CoffeePrice extends StatelessWidget {
   const CoffeePrice({super.key});
@@ -11,7 +12,7 @@ class CoffeePrice extends StatelessWidget {
           TextSpan(
             text: '\$',
             style: TextStyle(
-              color: Color(0xFFB77651),
+              color: MyColors.shadeOfBrown,
               fontSize: 16,
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w500,

@@ -17,8 +17,8 @@ class CoffeeDetailsTopPhotoStack extends StatelessWidget {
           decoration: BoxDecoration(
             image: const DecorationImage(
               fit: BoxFit.fill,
-              image: NetworkImage(
-                'https://tse1.mm.bing.net/th/id/OIP.gPQoShOwvHhECqMwCLtsswHaFb?w=1242&h=911&rs=1&pid=ImgDetMain',
+              image: AssetImage(
+                'assets/images/1430368.jpg',
               ),
             ),
             borderRadius: BorderRadius.circular(15),

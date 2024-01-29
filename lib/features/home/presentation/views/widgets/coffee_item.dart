@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pixel_co_payment_practice/core/constants/gradients.dart';
 import 'package:pixel_co_payment_practice/features/home/presentation/views/widgets/coffe_item_texts.dart';
 
 class CoffeeItem extends StatefulWidget {
@@ -48,17 +49,8 @@ class _CoffeeItemState extends State<CoffeeItem>
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            gradient: LinearGradient(
-              begin: alignmentController.value,
-              end: Alignment.bottomRight,
-              colors: [
-                const Color(0xffffffff).withOpacity(.1),
-                const Color(0xFF37373C),
-                const Color(0x7F313139),
-                Colors.black.withOpacity(0),
-                const Color(0xFF37373C),
-              ],
-            ),
+            gradient: MyGradients.getHomeGradient(
+                alignmentController.value, Alignment.bottomRight),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,

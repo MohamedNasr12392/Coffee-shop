@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pixel_co_payment_practice/core/constants/colors.dart';
 
 class CoffeeDetailsDescriptionPart extends StatelessWidget {
   const CoffeeDetailsDescriptionPart({super.key});
@@ -38,7 +39,7 @@ class CoffeeDetailsDescriptionPart extends StatelessWidget {
               const TextSpan(
                 text: '. . . Read more',
                 style: TextStyle(
-                  color: Color(0xFFB77651),
+                  color: MyColors.shadeOfBrown,
                   fontSize: 14,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w500,

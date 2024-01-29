@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pixel_co_payment_practice/core/constants/colors.dart';
 import 'package:pixel_co_payment_practice/features/home/presentation/views/widgets/circle_tab_indicator.dart';
 
 class CoffeTypesBar extends StatelessWidget {
@@ -10,13 +11,13 @@ class CoffeTypesBar extends StatelessWidget {
       isScrollable: true,
       dividerColor: Colors.transparent,
       dividerHeight: 0,
-      indicatorColor: const Color(0xFFB77651),
+      indicatorColor: MyColors.shadeOfBrown,
       physics: const BouncingScrollPhysics(),
       tabAlignment: TabAlignment.start,
-      labelColor: const Color(0xFFB77651),
+      labelColor: MyColors.shadeOfBrown,
       indicatorWeight: 10,
       indicator: CircleTabIndicator(
-        color: const Color(0xFFB77651),
+        color: MyColors.shadeOfBrown,
         radius: 5,
       ),
       labelStyle: TextStyle(

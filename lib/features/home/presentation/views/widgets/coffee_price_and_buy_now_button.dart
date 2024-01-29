@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pixel_co_payment_practice/core/constants/colors.dart';
 import 'package:pixel_co_payment_practice/core/widgets/coffee_price.dart';
+import 'package:pixel_co_payment_practice/core/widgets/custom_button.dart';
+import 'package:pixel_co_payment_practice/features/payment/presentation/views/pages/cart_page.dart';
 
 class CoffeePriceAndBuyNowButton extends StatelessWidget {
   const CoffeePriceAndBuyNowButton({super.key});
@@ -13,25 +16,11 @@ class CoffeePriceAndBuyNowButton extends StatelessWidget {
         const SizedBox(
           width: 27,
         ),
-        Container(
-          width: 262,
-          height: 74,
-          decoration: ShapeDecoration(
-            color: const Color(0xFFB77651),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
-          ),
-          child: const Center(
-            child: Text(
-              'Buy Now',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w600,
-                height: 0,
-              ),
+        CustomButton(
+          buttonText: 'BuyNow',
+          onTapAction: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const CartPage(),
             ),
           ),
         ),

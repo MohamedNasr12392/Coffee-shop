@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pixel_co_payment_practice/core/constants/colors.dart';
 
 class CoffeeSizes extends StatelessWidget {
   const CoffeeSizes({super.key});
@@ -32,7 +33,7 @@ class CoffeeSizes extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   side: const BorderSide(
                     width: 1,
-                    color: Color(0xFFB77651),
+                    color: MyColors.shadeOfBrown,
                   ),
                   borderRadius: BorderRadius.circular(8),
                 ),
@@ -41,7 +42,7 @@ class CoffeeSizes extends StatelessWidget {
                 'S',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Color(0xFFB77651),
+                  color: MyColors.shadeOfBrown,
                   fontSize: 20,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w600,
@@ -58,7 +59,8 @@ class CoffeeSizes extends StatelessWidget {
               decoration: ShapeDecoration(
                 color: const Color(0xD81A1A1D),
                 shape: RoundedRectangleBorder(
-                  side: const BorderSide(width: 1, color: Color(0xFFB77651)),
+                  side:
+                      const BorderSide(width: 1, color: MyColors.shadeOfBrown),
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
@@ -83,7 +85,8 @@ class CoffeeSizes extends StatelessWidget {
               decoration: ShapeDecoration(
                 color: const Color(0xD81A1A1D),
                 shape: RoundedRectangleBorder(
-                  side: const BorderSide(width: 1, color: Color(0xFFB77651)),
+                  side:
+                      const BorderSide(width: 1, color: MyColors.shadeOfBrown),
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
