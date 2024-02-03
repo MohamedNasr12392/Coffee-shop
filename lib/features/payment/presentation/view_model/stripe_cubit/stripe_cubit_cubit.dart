@@ -11,6 +11,8 @@ class StripeCubit extends Cubit<StripeCubitState> {
 
   final PaymentRepo paymentRepo;
 
+  int activeIndex = 0;
+
   Future makePayment(
     PaymentIntentInputModel paymentIntentInputModel,
   ) async {
@@ -26,6 +28,13 @@ class StripeCubit extends Cubit<StripeCubitState> {
         StripeSuccessState(),
       ),
     );
+  }
+
+  void changePayment(int index) {
+    activeIndex = index;
+    emit(ChangePaymentState(index: index));
+    print('Active Index changed to $index');
+    log('Active Index changed to $index');
   }
 
   @override

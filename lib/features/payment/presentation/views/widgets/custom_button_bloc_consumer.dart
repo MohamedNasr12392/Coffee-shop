@@ -1,6 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
+import 'package:pixel_co_payment_practice/core/constants/api_keys.dart';
 import 'package:pixel_co_payment_practice/core/constants/colors.dart';
+import 'package:pixel_co_payment_practice/core/constants/functions.dart';
 import 'package:pixel_co_payment_practice/core/widgets/custom_button.dart';
 import 'package:pixel_co_payment_practice/features/payment/data/models/payment_intent_input_model.dart';
 import 'package:pixel_co_payment_practice/features/payment/presentation/view_model/stripe_cubit/stripe_cubit_cubit.dart';
@@ -41,14 +46,24 @@ class CustomButtonBlocConsumer extends StatelessWidget {
           isLoading: state is StripeLoadingState ? true : false,
           buttonText: 'Continue',
           onTapAction: () {
-            PaymentIntentInputModel paymentIntentInputModel =
-                PaymentIntentInputModel(
-                    amount: '51',
-                    currency: 'USD',
-                    customerId: 'cus_PUakaLB2O1WPwg');
+            final stripeCubit = BlocProvider.of<StripeCubit>(context);
 
-            BlocProvider.of<StripeCubit>(context)
-                .makePayment(paymentIntentInputModel);
+            if (stripeCubit.activeIndex == 0) {
+              stripeCubit.changePayment(1);
+              MyFunctions.paypalExecution(context);
+              print('Switching to index 1');
+            } else if (stripeCubit.activeIndex == 1) {
+              stripeCubit.changePayment(0);
+              PaymentIntentInputModel paymentIntentInputModel =
+                  PaymentIntentInputModel(
+                amount: '51',
+                currency: 'USD',
+                customerId: 'cus_PUakaLB2O1WPwg',
+              );
+
+              stripeCubit.makePayment(paymentIntentInputModel);
+              print('Switching to index 0');
+            }
           },
         );
       },

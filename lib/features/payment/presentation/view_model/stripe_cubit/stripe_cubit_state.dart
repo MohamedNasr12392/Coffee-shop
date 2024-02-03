@@ -13,3 +13,9 @@ class StripeErrorState extends StripeCubitState {
 
   StripeErrorState({required this.errMsg});
 }
+
+class ChangePaymentState extends StripeCubitState {
+  final int index;
+
+  ChangePaymentState({required this.index});
+}
