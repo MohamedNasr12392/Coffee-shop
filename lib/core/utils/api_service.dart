@@ -8,6 +8,7 @@ class ApiService {
     required Map<String, dynamic> body,
     required String token,
     String? contentType,
+    Map<String, String>? headers,
   }) {
     var response = dio.post(
       url,
@@ -18,9 +19,10 @@ class ApiService {
           return status! < 500;
         },
         contentType: contentType,
-        headers: {
-          'Authorization': "Bearer $token",
-        },
+        headers: headers ??
+            {
+              'Authorization': "Bearer $token",
+            },
       ),
     );
     return response;
