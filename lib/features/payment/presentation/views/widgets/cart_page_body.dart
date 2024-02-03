@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pixel_co_payment_practice/core/constants/gradients.dart';
+import 'package:pixel_co_payment_practice/core/utils/stripe_service.dart';
 import 'package:pixel_co_payment_practice/core/widgets/custom_button.dart';
+import 'package:pixel_co_payment_practice/features/payment/data/repos/payment_repo_implementation.dart';
+import 'package:pixel_co_payment_practice/features/payment/presentation/view_model/stripe_cubit/stripe_cubit_cubit.dart';
 import 'package:pixel_co_payment_practice/features/payment/presentation/views/pages/payment_details.dart';
 import 'package:pixel_co_payment_practice/features/payment/presentation/views/widgets/cart_total_price.dart';
 import 'package:pixel_co_payment_practice/features/payment/presentation/views/widgets/order_info_item.dart';
@@ -59,13 +63,21 @@ class CartPageBody extends StatelessWidget {
             buttonText: 'Complete Payment',
             onTapAction: () {
               showModalBottomSheet(
-                  context: context,
-                  backgroundColor: Colors.black,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16)),
-                  builder: (context) {
-                    return const PaymentMethodsBottomSheet();
-                  });
+                context: context,
+                backgroundColor: Colors.grey,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16)),
+                builder: (context) {
+                  return BlocProvider(
+                    create: (context) => StripeCubit(
+                      PaymentRepoImplement(
+                        stripeService: StripeService(),
+                      ),
+                    ),
+                    child: const PaymentMethodsBottomSheet(),
+                  );
+                },
+              );
             },
           ),
           const SizedBox(

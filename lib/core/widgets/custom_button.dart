@@ -7,10 +7,12 @@ class CustomButton extends StatefulWidget {
     super.key,
     required this.buttonText,
     required this.onTapAction,
+    this.isLoading = false,
   });
 
   final String buttonText;
   final void Function()? onTapAction;
+  final bool isLoading;
 
   @override
   State<CustomButton> createState() => _CustomButtonState();
@@ -67,18 +69,22 @@ class _CustomButtonState extends State<CustomButton>
               Alignment.bottomRight,
             ),
           ),
-          child: Center(
-            child: Text(
-              widget.buttonText,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w600,
-                height: 0,
-              ),
-            ),
-          ),
+          child: !widget.isLoading
+              ? Center(
+                  child: Text(
+                    widget.buttonText,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w600,
+                      height: 0,
+                    ),
+                  ),
+                )
+              : const CircularProgressIndicator(
+                  color: Colors.blueGrey,
+                ),
         ),
       ),
     );

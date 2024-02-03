@@ -1,11 +1,13 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:pixel_co_payment_practice/features/payment/data/models/payment_intent_input_model.dart';
 import 'package:pixel_co_payment_practice/features/payment/data/repos/payment_repo.dart';
 
 part 'stripe_cubit_state.dart';
 
-class StripeCubitCubit extends Cubit<StripeCubitState> {
-  StripeCubitCubit(this.paymentRepo) : super(StripeCubitInitial());
+class StripeCubit extends Cubit<StripeCubitState> {
+  StripeCubit(this.paymentRepo) : super(StripeCubitInitial());
 
   final PaymentRepo paymentRepo;
 
@@ -17,12 +19,18 @@ class StripeCubitCubit extends Cubit<StripeCubitState> {
     response.fold(
       (failure) => emit(
         StripeErrorState(
-          errMsg: failure.toString(),
+          errMsg: failure.errMsg.toString(),
         ),
       ),
       (success) => emit(
         StripeSuccessState(),
       ),
     );
+  }
+
+  @override
+  void onChange(Change<StripeCubitState> change) {
+    super.onChange(change);
+    log(change.toString());
   }
 }

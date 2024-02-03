@@ -3,9 +3,9 @@ import 'package:dio/dio.dart';
 class ApiService {
   final Dio dio = Dio();
 
-  Future<Response> post({
+  Future<Response> apiPost({
     required String url,
-    required String body,
+    required Map<String, dynamic> body,
     required String token,
     String? contentType,
   }) {
@@ -13,9 +13,13 @@ class ApiService {
       url,
       data: body,
       options: Options(
+        followRedirects: false,
+        validateStatus: (status) {
+          return status! < 500;
+        },
         contentType: contentType,
         headers: {
-          'Authorization': 'Bearer $token',
+          'Authorization': "Bearer $token",
         },
       ),
     );

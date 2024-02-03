@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pixel_co_payment_practice/core/widgets/custom_button.dart';
+import 'package:pixel_co_payment_practice/features/payment/presentation/views/widgets/custom_button_bloc_consumer.dart';
 import 'package:pixel_co_payment_practice/features/payment/presentation/views/widgets/payment_methods_list_view.dart';
 
 class PaymentMethodsBottomSheet extends StatelessWidget {
@@ -7,20 +8,17 @@ class PaymentMethodsBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const SizedBox(
+        SizedBox(
           height: 20,
         ),
-        const PaymentMethodsListView(),
-        const SizedBox(
+        PaymentMethodsListView(),
+        SizedBox(
           height: 16,
         ),
-        CustomButton(
-          buttonText: 'Continue',
-          onTapAction: () {},
-        )
+        CustomButtonBlocConsumer(),
       ],
     );
   }
